@@ -1,0 +1,51 @@
+'''
+1. fake codes about tree and graph
+2. some notes
+'''
+
+# binary search tree
+BSTNode(item)
+
+def find(self, item):
+    # helper function: recurse
+    def recurse(node):
+    if node is None:
+        return None 
+    elif item < node.data:
+        if node.left != None:
+            recurse(node.left)
+        else:
+            node.left = BSTNode(item)
+    elif node.right is None:
+        node.right = BSTNode(item)
+    else:
+        recurse(node.right)
+    # use helper function with arg: self._root
+    return recurse(self._root) 
+
+def inorder(self):
+    '''inorder traversal'''
+    lyst = list() 
+    def recurse(node):
+        if node != None:
+            recurse(node.left)
+            lyst.append(node.data)
+            recurse(node.right)
+    recurse(self._root)
+    return iter(lyst)
+
+# Graph
+
+Dijkstra algorithm: 
+    '''
+    Find the shortest path of the source Vertex to all other vertex
+    of Directed Graph
+    '''
+Floyd: find the shortest path of every two vetexs 
+    '''
+    for i from 0 to n-1:
+        for r from 0 to n-1:
+            for c from 0 to n-1:
+                matrix[r][c] = min(matrix[r][c], 
+                            matrix[r][i] + matrix[i][c])
+    '''
